@@ -1,42 +1,42 @@
-
 import java.util.Scanner;
 
 public class character {
 
-	public static void main(String[] args) {
-		Scanner sc=new Scanner(System.in);
-		System.out.print("enter a data:");
-		String n =sc.next();
-		int cnt1 =0;
-		int cnt2=0;
-		string v= "aeiouAEIOU";
-		char []character = new char[n];
-		
-		for(char i =0;i<character.length;i++) {
-			if(character[i]!=character[i])
-			{
-				System.out.print("no duplicate");
-				
-			}
-			else if(character[i]==v) {
-				cnt1++;
-			}
-			else if(character[i]!=v) {
-				cnt2++;
-				
-				
-			else {
-				System.out.print("duplicate element are:"+character[i]);
-			}
-		
-		}
-		System.out.print("COUNT:"+cnt1);
-		System.out.print("COUNT:"+cnt2);
-			
-		}
-		
-		
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a data: ");
+        String n = sc.next();
 
-	}
+        int cnt1 = 0; // Vowel count
+        int cnt2 = 0; // Consonant count
 
+        String v = "aeiouAEIOU";
+        char[] character = n.toCharArray();
+
+        for (int i = 0; i < character.length; i++) {
+            boolean isDuplicate = false;
+
+            // Check for duplicates
+            for (int j = 0; j < i; j++) {
+                if (character[i] == character[j]) {
+                    isDuplicate = true;
+                    break;
+                }
+            }
+
+            if (isDuplicate) {
+                System.out.println("Duplicate element: " + character[i]);
+            } else {
+                if (v.indexOf(character[i]) != -1) {
+                    cnt1++; // It's a vowel
+                } else if (Character.isLetter(character[i])) {
+                    cnt2++; // It's a consonant
+                }
+            }
+        }
+
+        System.out.println("Vowel COUNT: " + cnt1);
+        System.out.println("Consonant COUNT: " + cnt2);
+    }
 }
+
