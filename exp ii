@@ -1,22 +1,15 @@
 import java.util.Scanner;
-
 public class character {
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter a data: ");
+        System.out.print("Enter a character: ");
         String n = sc.next();
-
-        int cnt1 = 0; // Vowel count
-        int cnt2 = 0; // Consonant count
-
+        int cnt1 = 0; 
+        int cnt2 = 0; 
         String v = "aeiouAEIOU";
         char[] character = n.toCharArray();
-
         for (int i = 0; i < character.length; i++) {
             boolean isDuplicate = false;
-
-            // Check for duplicates
             for (int j = 0; j < i; j++) {
                 if (character[i] == character[j]) {
                     isDuplicate = true;
@@ -28,14 +21,14 @@ public class character {
                 System.out.println("Duplicate element: " + character[i]);
             } else {
                 if (v.indexOf(character[i]) != -1) {
-                    cnt1++; // It's a vowel
+                    cnt1++; 
                 } else if (Character.isLetter(character[i])) {
-                    cnt2++; // It's a consonant
+                    cnt2++; 
                 }
             }
         }
 
-        System.out.println("Vowel COUNT: " + cnt1);
-        System.out.println("Consonant COUNT: " + cnt2);
+        System.out.println("Vowel count: " + cnt1);
+        System.out.println("Consonant count: " + cnt2);
     }
 }
